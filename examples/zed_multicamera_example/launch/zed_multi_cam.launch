@@ -17,12 +17,14 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 <launch>
+    <node name = "clock_publisher" pkg = "zed2_client" type = "clock_publisher" />
+
     <arg name="publish_urdf"         default="true" />
 
     <!-- CAMERA 1 -->
-    <arg name="node_name_1"          default="zed_node_A" />
+    <arg name="node_name_1"          default="zed_node" />
     <arg name="camera_model_1"       default="zed2" />    
-    <arg name="camera_name_1"        default="zedA" />
+    <arg name="camera_name_1"        default="zed2" />
     <arg name="cam_pos_x_1"          default="0.0" /> <!-- Position respect to base frame (i.e. "base_link) -->
     <arg name="cam_pos_y_1"          default="0.0" /> <!-- Position respect to base frame (i.e. "base_link) -->
     <arg name="cam_pos_z_1"          default="0.0" /> <!-- Position respect to base frame (i.e. "base_link) -->
@@ -31,15 +33,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <arg name="cam_yaw_1"            default="0.0" /> <!-- Orientation respect to base frame (i.e. "base_link) -->
 
     <!-- CAMERA 2 -->
-    <arg name="node_name_2"          default="zed_node_B" />
+    <arg name="node_name_2"          default="zed_node" />
     <arg name="camera_model_2"       default="zed" />
-    <arg name="camera_name_2"        default="zedB" />
+    <arg name="camera_name_2"        default="zed_add" />
     <arg name="cam_pos_x_2"          default="0.0" /> <!-- Position respect to base frame (i.e. "base_link) -->
     <arg name="cam_pos_y_2"          default="-0.28" /> <!-- Position respect to base frame (i.e. "base_link) -->
     <arg name="cam_pos_z_2"          default="-0.04" /> <!-- Position respect to base frame (i.e. "base_link) -->
     <arg name="cam_roll_2"           default="0.0" /> <!-- Orientation respect to base frame (i.e. "base_link) -->
     <arg name="cam_pitch_2"          default="0.0" /> <!-- Orientation respect to base frame (i.e. "base_link) -->
-    <arg name="cam_yaw_2"            default="0.0" /> <!-- Orientation respect to base frame (i.e. "base_link) -->
+    <arg name="cam_yaw_2"            default="3.14" /> <!-- Orientation respect to base frame (i.e. "base_link) -->
 
     <group ns="$(arg camera_name_1)">
         <include file="$(find zed_multicamera_example)/launch/zed_camera_mod.launch">
